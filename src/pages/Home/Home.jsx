@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
+import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 
 const Home = () => {
 
@@ -13,6 +14,7 @@ const Home = () => {
       <Header/>
       <ExploreMenu category={category} setCategory={setCategory}/>
       {/* in props we are providing category anf setCategory function both to the ExploreMenu componenet */}
+      <FoodDisplay category={category}/>
     </div>
   )
 }
