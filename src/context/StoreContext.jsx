@@ -24,16 +24,29 @@ const StoreContextProvider = (props) => {
             setCartItems((prev)=>({...prev, [itemId]:prev[itemId]-1}))
     }
 
-    useEffect(()=>{
-        console.log(cartItems);
-    },[cartItems])    //whenever cartItems updates it will run
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for(const item in cartItems)
+        {
+            if(cartItems[item]>0){
+                let itemInfo = food_list.find((product)=>product._id === item)
+                totalAmount += itemInfo.price* cartItems[item];
+            }
+        }
+        return totalAmount;
+    }
+
+    // useEffect(()=>{
+    //     console.log(cartItems);
+    // },[cartItems])    //whenever cartItems updates it will run
 
     const contextValue = {       //we exporting all these things through contextAPI so that these can be accessed by any component of the page
         food_list,
         cartItems,
         setCartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        getTotalCartAmount
     }
     return (
         <StoreContext.Provider value={contextValue}>
