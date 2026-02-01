@@ -9,7 +9,7 @@ const Navbar = ({setShowLogin}) => {
 
   return (
     <div className='navbar'>
-      <img className="logo" src={assets.logo} alt="" />
+      <Link to='/'><img className="logo" src={assets.logo} alt="" /></Link>
       <ul className="navbar-menu">
         {/* the usestate variable - menu will change when we click on these so it will show a Underline(we set it in 'active' class) on the option which is setted on menu that time  */}
         <Link to='/' onClick={()=>{setMenu("home")}} className={menu==="home"?"active":""}>Home</Link>
@@ -21,7 +21,7 @@ const Navbar = ({setShowLogin}) => {
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="navbar-search-icon">
-            <img src={assets.basket_icon} alt="" />
+          <Link to='/cart'><img src={assets.basket_icon} alt="" /></Link>
             <div className='dot'></div>
         </div>
         <button onClick={()=>setShowLogin(true)}>Sign in</button>
