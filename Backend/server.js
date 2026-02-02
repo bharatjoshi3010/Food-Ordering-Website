@@ -1,0 +1,30 @@
+// npm i express mongoose jsonwebtoken bcrypt cors dotenv body-parser multer stripe validator nodemon 
+//cors -> help in connecting frontend and backend
+//stripe -> Initialize the Stripe client with your secret key
+// We installed thunderClient for API testing, its a VS code extension
+import express from "express"
+import cors from "cors"
+import { connectDB } from "./config/db.js"  //dont forget to add '.js' here
+
+
+//app config
+const app = express()
+const port = 4000
+
+//middleware
+app.use(express.json())
+app.use(cors())
+
+// db connection
+connectDB()
+
+app.get("/", (req, res)=>{
+    res.send("API working")
+})
+
+app.listen(port, ()=>{
+    console.log(`Server Started on http://localhost:${port}`)
+})
+
+//mongodb+srv://manjuskitchenn:joshibharat@cluster0.jwqf2e8.mongodb.net/?appName=Cluster0
+//you get this mongodb connetion string from mongoDB atlas while you create a cluster/Database
