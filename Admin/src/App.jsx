@@ -10,9 +10,13 @@ import Add from './pages/Add/Add'
 import List from './pages/List/List'
 import Orders from './pages/Orders/Orders'
 
+import { ToastContainer} from 'react-toastify';    
+//we use toastify to print toast on the webpage // you can get it from the npm-toatify website
+
 const App = () => {
   return (
     <div>
+      <ToastContainer/>
       <Navbar/>
       <hr/>
       <div className="app-content">
