@@ -23,3 +23,14 @@ hr{
   background-color: #a9a9a9;
 }
 
+.app-content{
+  display: flex;
+}
+
+/* this felx-col is used in many places thats why we define it here */
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
