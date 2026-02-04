@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Add.css'
 import { assets } from '../../assets/assets'
+import axios from 'axios'
 
 const Add = () => {
+
+    const url = "http://localhost:4000";
 
     // making state variable for storing the image
     const [image, setImage] = useState(false);
@@ -37,7 +40,30 @@ const Add = () => {
     //     console.log(data);
     // },[data])
 
-    
+    // ********************************************************
+    //now we have all the data of this page so now we call the API ---> 
+    const onSubmitHandler = async (event) => {
+        event.preventDefault();    //stops reloading of webpage when we click on 'Submit/Add' button
+        const formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("description", data.description);
+        formData.append("price", Number(data.price));
+        formData.append("category", data.category);
+        formData.append("image", image)
+        const response = await axios.post(`${url}/api/food/add`, formData);   //it calls the backend and run the post add route 
+        if (response.data.success) {
+            //if success then we have to clear the input fields
+            setData({
+                name:"",
+                description:"",
+                price:"",
+                category:"Salad"
+            })
+            setImage(false)
+        } else {
+
+        }
+    }
 
     return (
         <div className='add'>
