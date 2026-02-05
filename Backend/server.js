@@ -6,6 +6,8 @@ import express from "express"
 import cors from "cors"
 import { connectDB } from "./config/db.js"  //dont forget to add '.js' here
 import foodRouter from "./routes/foodRoute.js"
+import userRouter from "./routes/userRoute.js"
+import 'dotenv/config'     //it include env file in our project
 
 
 //app config
@@ -23,6 +25,7 @@ connectDB()
 app.use("/api/food", foodRouter)
 app.use("/images", express.static('uploads'))  //by this we are accessing upload folder for image route's static files 
 // (if you write 'http://localhost:4000/images/17700344050471762882081133.jpg' -> http://localhost:4000/images/nameOfimgStoredInUploadsFolder.jpg it in the browser it will show an image )
+app.use("/api/user", userRouter)
 
 app.get("/", (req, res)=>{
     res.send("API working")
