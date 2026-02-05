@@ -13,6 +13,7 @@ const StoreContextProvider = (props) => {
     const url = "http://localhost:4000"         //we define it from here so we can access it from anywhere
     const [token, setToken] = useState("")          //token for chceking whether user is logged in or not
 
+
     const addToCart = (itemId) => {
         if(!cartItems[itemId]){   //Checks whether the item already exists in the cart.
             setCartItems((prev)=>({...prev, [itemId]:1}))
@@ -43,6 +44,12 @@ const StoreContextProvider = (props) => {
     // useEffect(()=>{
     //     console.log(cartItems);
     // },[cartItems])    //whenever cartItems updates it will run
+
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            setToken(localStorage.getItem("token"));
+        }
+    })   //updates the value of token by taking it from localStorage so that we do not logout on each refresh
 
     const contextValue = {       //we exporting all these things through contextAPI so that these can be accessed by any component of the page
         food_list,
