@@ -9,6 +9,10 @@ const StoreContextProvider = (props) => {
     //Initializes state as an empty object.
     //we make it to store all cart details in a single Object
 
+    //url of our backend
+    const url = "http://localhost:4000"         //we define it from here so we can access it from anywhere
+    const [token, setToken] = useState("")          //token for chceking whether user is logged in or not
+
     const addToCart = (itemId) => {
         if(!cartItems[itemId]){   //Checks whether the item already exists in the cart.
             setCartItems((prev)=>({...prev, [itemId]:1}))
@@ -46,7 +50,10 @@ const StoreContextProvider = (props) => {
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotalCartAmount
+        getTotalCartAmount,
+        url,
+        token,
+        setToken
     }
     return (
         <StoreContext.Provider value={contextValue}>

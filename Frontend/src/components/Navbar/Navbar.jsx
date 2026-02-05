@@ -8,7 +8,7 @@ const Navbar = ({setShowLogin}) => {
 
     const [menu, setMenu] = useState("home");
 
-    const {getTotalCartAmount} = useContext(StoreContext)
+    const {getTotalCartAmount, token, setToken} = useContext(StoreContext)
 
   return (
     <div className='navbar'>
@@ -28,7 +28,18 @@ const Navbar = ({setShowLogin}) => {
             <div className={getTotalCartAmount()===0?"":"dot"}></div>
             {/* if cart is empty then no dot appear if cart is empty then a dot appear at top */}
         </div>
-        <button onClick={()=>setShowLogin(true)}>Sign in</button>
+        {/* if token is avilable then the div will be visible, otherwise the signup button is visible */}
+        {!token?<button onClick={()=>setShowLogin(true)}>Sign in</button>
+        :<div className='navbar-profile'>
+          <img src={assets.profile_icon} alt="" />
+          <ul className="nav-profile-dropdown">
+            <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+            <hr />
+            <li><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+          </ul>
+        </div>
+        }
+        
       </div>
     </div>
   )
