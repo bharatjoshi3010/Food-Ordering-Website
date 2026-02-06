@@ -42,7 +42,7 @@ const MyOrders = () => {
               <p>Items: {order.items.length}</p>
               <p><span>&#x25cf;</span> <b>{order.status}</b></p>
               {/* this '&#x25cf;' is a hex code for making a bullet point */}
-              <button>Track Order</button>
+              <button onClick={fetchOrders}>Track Order</button>
             </div>
           )
         })}
