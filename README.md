@@ -8,7 +8,7 @@ This project simulates a real-world online food ordering platform where users ca
 ## 🌍 Live Project
 
 🔗 **Deployed Website (Render):**  
-[https://food-ordering-frontend-4lbx.onrender.com/]
+https://food-ordering-frontend-4lbx.onrender.com/
 
 > The project is deployed using **Render.com**, allowing users to directly explore the complete application without any local setup.
 
