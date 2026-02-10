@@ -100,6 +100,5 @@ The system supports **two roles**:
 ### 🛠️ Admin Dashboard
 ![Admin Dashboard](./screenshots/admin.png)
 
-> 📌 Place your screenshots inside a `screenshots/` folder in the root of the repository  
-> and name them accordingly (home.png, food-list.png, payment.png, etc.)
+
 
