@@ -52,7 +52,7 @@ The system supports **two roles**:
 - React Router DOM
 - Context API
 - Axios
-- CSS / Tailwind CSS (as used)
+- CSS
 
 ### Backend
 - Node.js
